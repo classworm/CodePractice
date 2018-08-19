@@ -1,0 +1,52 @@
+using Xunit;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+using System;
+
+
+namespace Lesson_A
+{
+	public class A09_FindClosestTo0
+	{
+		public static int FindClosestTo0(int[] a)
+		{
+
+
+			int x = Convert.ToInt32(a.Min());
+
+			for (int i = 0; i < a.Length; i++)
+				{
+				if (Math.Abs(x) < Math.Abs(a[i]))
+				{
+					return x;
+				}
+
+				}
+
+			return 0;
+		}
+		
+
+
+        [Fact]
+        public void FindClosestTest1()
+        {
+            Assert.Equal(3, FindClosestTo0(new int[] { 18, 3, 5, 23 }));
+        }
+
+        [Fact]
+        public void FindClosestTest2()
+        {
+            Assert.Equal(4, FindClosestTo0(new int[] {12, -91, 90, 4, 34, -23 }));
+        }
+
+        [Fact]
+        public void FindClosestTest3()
+        {
+            Assert.Equal(-7, FindClosestTo0(new int[] { -14, -34, 12, -7, 9 }));
+        }
+	}
+
+}
