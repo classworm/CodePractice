@@ -13,22 +13,26 @@ namespace Lesson_A
 		public static int FindClosestTo0(int[] a)
 		{
 
+			int num = a[0];
+			int AbsNum = Math.Abs(num);
 
-			int x = Convert.ToInt32(a.Min());
-
-			for (int i = 0; i < a.Length; i++)
+			for (int i = 1; i < a.Length; i++)
+			{
+				int newAbs = Math.Abs(a[i]);
+				if (newAbs <AbsNum)
 				{
-				if (Math.Abs(x) < Math.Abs(a[i]))
-				{
-					return x;
+					AbsNum = newAbs;
+					num = a[i];
 				}
-
-				}
-
-			return 0;
+			}
+			return num;
+			
 		}
 		
-
+	
+	
+		
+ 
 
         [Fact]
         public void FindClosestTest1()
